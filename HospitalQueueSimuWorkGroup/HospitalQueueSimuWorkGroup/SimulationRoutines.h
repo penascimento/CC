@@ -19,35 +19,35 @@ float DeterminarTempoServico(float A, float B, float T0)
 	r = rand() / (float)RAND_MAX;
 	X = T0 + A + (B - A) * r;
 	//printf("r2 = %f  -- X2 = %f \n", r, X);
-	printf("TempoServico = %f \n\n", r, X);
+	printf("\n\nTempoServico = %f \n\n", r, X);
 	return X;
 }
 
 
 void Inicializacao(float Time,
-	int *NumClientesSistema,
-	int *EstadoSAtend1,
-	int *EstadoSAtend2,
-	float **FilaEventosChegadaSAtend,
-	float *Clock,
-	float *TempoProximaChegadaSAtend,
-	float *TempoPartidaSAtend1,
-	float *TempoPartidaSAtend2,
-	float *TempoTotalEsperaSAtend,
-	float *TempoOcupacaoSAtend1,
-	float *TempoOcupacaoSAtend2,
-	float *TempoTotalPermanencia,
-	int *TotalClientesFilaSAtend,
-	float *EstadoSTriag1,
-	float *EstadoSTriag2,
-	float **FilaEventosChegadaSTriag,
-	float *TempoProximaChegadaSTriag,
-	float *TempoPartidaSTriag1,
-	float *TempoPartidaSTriag2,
-	float *TempoTotalEsperaSTriag,
-	float *TempoOcupacaoSTriag1,
-	float *TempoOcupacaoSTriag2,
-	int *TotalClientesFilaSTriag)
+					int *NumClientesSistema,
+					int *EstadoSAtend1,
+					int *EstadoSAtend2,
+					float **FilaEventosChegadaSAtend,
+					float *Clock,
+					float *TempoProximaChegadaSAtend,
+					float *TempoPartidaSAtend1,
+					float *TempoPartidaSAtend2,
+					float *TempoTotalEsperaSAtend,
+					float *TempoOcupacaoSAtend1,
+					float *TempoOcupacaoSAtend2,
+					float *TempoTotalPermanencia,
+					int *TotalClientesFilaSAtend,
+					float *EstadoSTriag1,
+					float *EstadoSTriag2,
+					float **FilaEventosChegadaSTriag,
+					float *TempoProximaChegadaSTriag,
+					float *TempoPartidaSTriag1,
+					float *TempoPartidaSTriag2,
+					float *TempoTotalEsperaSTriag,
+					float *TempoOcupacaoSTriag1,
+					float *TempoOcupacaoSTriag2,
+					int *TotalClientesFilaSTriag)
 {
 	*NumClientesSistema = 0;
 	*EstadoSAtend1 = 0;  // livre / available
@@ -76,24 +76,24 @@ void Inicializacao(float Time,
 
 
 void GestaoTempo(float TempoProximaChegadaSAtend,
-	float TempoPartidaSAtend1,
-	float TempoPartidaSAtend2,
-	float TempoProximaChegadaSTriag,
-	float TempoPartidaSTriag1,
-	float TempoPartidaSTriag2,
-	float *Tempo,
-	int *TipoEvento)
+				float TempoPartidaSAtend1,
+				float TempoPartidaSAtend2,
+				float TempoProximaChegadaSTriag,
+				float TempoPartidaSTriag1,
+				float TempoPartidaSTriag2,
+				float *Tempo,
+				int *TipoEvento)
 {
-	//if (TempoProximaChegadaSAtend < TempoProximaChegadaSTriag)
-	//{
-	*Tempo = TempoProximaChegadaSAtend;
-	*TipoEvento = 0;  // Chegada / Arrival
-					  //}		
-					  //else
-					  //{
-					  //	*Tempo = TempoProximaChegadaSTriag;
-					  //	*TipoEvento = 3;  // Chegada / Arrival
-					  //}	
+	if (TempoProximaChegadaSAtend < TempoProximaChegadaSTriag)
+	{
+		*Tempo = TempoProximaChegadaSAtend;
+		*TipoEvento = 0;  // Chegada / Arrival
+	}
+	else
+	{
+		*Tempo = TempoProximaChegadaSTriag;
+		*TipoEvento = 3;  // Chegada / Arrival
+	}
 
 	if (TempoPartidaSAtend1 < *Tempo)
 	{
@@ -125,18 +125,18 @@ void GestaoTempo(float TempoProximaChegadaSAtend,
 }
 
 void EventoChegada(float Tempo,
-	int *NumClientesSistema,
-	int *EstadoSAtend1,
-	int *EstadoSAtend2,
-	float **FilaEventosChegadaSAtend,
-	float *TempoProximaChegadaSAtend,
-	float *TempoPartidaSAtend1,
-	float *TempoPartidaSAtend2,
-	float *TempoProximaChegadaSTriag,
-	float *TempoOcupacaoSAtend1,
-	float *TempoOcupacaoSAtend2,
-	float *TempoTotalPermanencia,
-	int *TotalClientesFilaSAtend)
+					int *NumClientesSistema,
+					int *EstadoSAtend1,
+					int *EstadoSAtend2,
+					float **FilaEventosChegadaSAtend,
+					float *TempoProximaChegadaSAtend,
+					float *TempoPartidaSAtend1,
+					float *TempoPartidaSAtend2,
+					float *TempoProximaChegadaSTriag,
+					float *TempoOcupacaoSAtend1,
+					float *TempoOcupacaoSAtend2,
+					float *TempoTotalPermanencia,
+					int *TotalClientesFilaSAtend)
 {
 	float	TempoEntreChegadas,
 		TempoServico;
@@ -174,16 +174,16 @@ void EventoChegada(float Tempo,
 }
 
 void EventoChegadaSTriag(float Tempo,
-	int *EstadoSTriag1,
-	int *EstadoSTriag2,
-	float **FilaEventosChegadaSTriag,
-	float *TempoProximaChegadaSTriag,
-	float *TempoPartidaSTriag1,
-	float *TempoPartidaSTriag2,
-	float *TempoOcupacaoSTriag1,
-	float *TempoOcupacaoSTriag2,
-	float *TempoTotalPermanencia,
-	int *TotalClientesFilaSTriag)
+						int *EstadoSTriag1,
+						int *EstadoSTriag2,
+						float **FilaEventosChegadaSTriag,
+						float *TempoProximaChegadaSTriag,
+						float *TempoPartidaSTriag1,
+						float *TempoPartidaSTriag2,
+						float *TempoOcupacaoSTriag1,
+						float *TempoOcupacaoSTriag2,
+						float *TempoTotalPermanencia,
+						int *TotalClientesFilaSTriag)
 {
 	float	TempoEntreChegadas,
 		TempoServico;
@@ -218,14 +218,14 @@ void EventoChegadaSTriag(float Tempo,
 }
 
 void EventoPartida1(float Tempo,
-	int *NumClientesSistema,
-	int *EstadoSAtend1,
-	float **FilaEventosChegadaSAtend,
-	float *TempoPartidaSAtend1,
-	float *TempoProximaChegadaSTriag,
-	float *TempoOcupacaoSAtend1,
-	float *TempoTotalEsperaSAtend,
-	float *TempoTotalPermanencia)
+					int *NumClientesSistema,
+					int *EstadoSAtend1,
+					float **FilaEventosChegadaSAtend,
+					float *TempoPartidaSAtend1,
+					float *TempoProximaChegadaSTriag,
+					float *TempoOcupacaoSAtend1,
+					float *TempoTotalEsperaSAtend,
+					float *TempoTotalPermanencia)
 {
 	float	TempoChegadaCliente,
 		TempoEsperaCliente,
@@ -251,14 +251,14 @@ void EventoPartida1(float Tempo,
 	}
 }
 void EventoPartida2(float Tempo,
-	int *NumClientesSistema,
-	int *EstadoSAtend2,
-	float **FilaEventosChegadaSAtend,
-	float *TempoPartidaSAtend2,
-	float *TempoProximaChegadaSTriag,
-	float *TempoOcupacaoSAtend2,
-	float *TempoTotalEsperaSAtend,
-	float *TempoTotalPermanencia)
+					int *NumClientesSistema,
+					int *EstadoSAtend2,
+					float **FilaEventosChegadaSAtend,
+					float *TempoPartidaSAtend2,
+					float *TempoProximaChegadaSTriag,
+					float *TempoOcupacaoSAtend2,
+					float *TempoTotalEsperaSAtend,
+					float *TempoTotalPermanencia)
 {
 	float	TempoChegadaCliente,
 		TempoEsperaCliente,
@@ -287,12 +287,12 @@ void EventoPartida2(float Tempo,
 
 
 void ContadoresEstatisticos(int NumClientesSistema,
-	int TotalClientesFilaSAtend,
-	float TempoOcupacaoSAtend1,
-	float TempoOcupacaoSAtend2,
-	float TempoTotalEsperaSAtend,
-	float TempoTotalPermanencia,
-	float TempoTotalSistema)
+							int TotalClientesFilaSAtend,
+							float TempoOcupacaoSAtend1,
+							float TempoOcupacaoSAtend2,
+							float TempoTotalEsperaSAtend,
+							float TempoTotalPermanencia,
+							float TempoTotalSistema)
 {
 	int TaxaOcupacaoAgentes,
 		TaxaOcupacaoAgente1,

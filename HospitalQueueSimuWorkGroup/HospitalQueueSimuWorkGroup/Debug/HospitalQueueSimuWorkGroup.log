@@ -11,5 +11,4 @@ c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\
 c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(306): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(67): warning C4133: 'function': incompatible types - from 'int *' to 'float *'
 c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(68): warning C4133: 'function': incompatible types - from 'int *' to 'float *'
-c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(47): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+  HospitalQueueSimuWorkGroup.vcxproj -> C:\Users\MyName\GitHub\CC\HospitalQueueSimuWorkGroup\Debug\HospitalQueueSimuWorkGroup.exe
