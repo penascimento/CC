@@ -31,6 +31,4 @@ void main()
 		TempoOcupacaoAgente2,
 		TempoTotalPermanencia,
 		TempoTotalSistema;
-
-	abdc
 }
