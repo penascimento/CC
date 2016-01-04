@@ -1,1 +1,14 @@
-﻿  HospitalQueueSimuWorkGroup.vcxproj -> C:\Users\MyName\GitHub\CC\HospitalQueueSimuWorkGroup\Debug\HospitalQueueSimuWorkGroup.exe
+﻿  Main.c
+c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\queue.h(36): warning C4101: 'i': unreferenced local variable
+c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(6): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(8): warning C4474: 'printf' : too many arguments passed for format string
+  c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(8): note: placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(21): warning C4474: 'printf' : too many arguments passed for format string
+  c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(21): note: placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(187): warning C4101: 'TempoEntreChegadas': unreferenced local variable
+c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(303): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(304): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(305): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(67): warning C4133: 'function': incompatible types - from 'int *' to 'float *'
+c:\users\myname\github\cc\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(68): warning C4133: 'function': incompatible types - from 'int *' to 'float *'
+  HospitalQueueSimuWorkGroup.vcxproj -> C:\Users\MyName\GitHub\CC\HospitalQueueSimuWorkGroup\Debug\HospitalQueueSimuWorkGroup.exe

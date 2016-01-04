@@ -25,23 +25,23 @@ main()
 		TipoEvento;
 
 	float	TempoPrimeiraChegada,
-			*FilaEventosChegadaSAtend,
-			*FilaEventosChegadaSTriag,
-			Clock,
-			TempoProximaChegadaSAtend,
-			TempoProximaChegadaSTriag,
-			TempoPartidaSAtend1,
-			TempoPartidaSAtend2,
-			TempoTotalEsperaSAtend,
-			TempoOcupacaoSAtend1,
-			TempoOcupacaoSAtend2,
-			TempoPartidaSTriag1,
-			TempoPartidaSTriag2,
-			TempoTotalEsperaSTriag,
-			TempoOcupacaoSTriag1,
-			TempoOcupacaoSTriag2,
-			TempoTotalPermanencia,
-			TempoTotalSistema;
+		*FilaEventosChegadaSAtend,
+		*FilaEventosChegadaSTriag,
+		Clock,
+		TempoProximaChegadaSAtend,
+		TempoProximaChegadaSTriag,
+		TempoPartidaSAtend1,
+		TempoPartidaSAtend2,
+		TempoTotalEsperaSAtend,
+		TempoOcupacaoSAtend1,
+		TempoOcupacaoSAtend2,
+		TempoPartidaSTriag1,
+		TempoPartidaSTriag2,
+		TempoTotalEsperaSTriag,
+		TempoOcupacaoSTriag1,
+		TempoOcupacaoSTriag2,
+		TempoTotalPermanencia,
+		TempoTotalSistema;
 
 	printf("Com quantos clientes quer realizar a simulacao ? ");
 	scanf_s("%d", &MaximoClientes);
@@ -51,29 +51,29 @@ main()
 	TempoPrimeiraChegada = DeterminarTempoEntreChegadas(2.0);
 
 	Inicializacao(TempoPrimeiraChegada,
-					&NumClientesSistema,
-					&EstadoSAtend1,
-					&EstadoSAtend2,
-					&FilaEventosChegadaSAtend,
-					&Clock,
-					&TempoProximaChegadaSAtend,
-					&TempoPartidaSAtend1,
-					&TempoPartidaSAtend2,
-					&TempoTotalEsperaSAtend,
-					&TempoOcupacaoSAtend1,
-					&TempoOcupacaoSAtend2,
-					&TempoTotalPermanencia,
-					&TotalClientesFilaSAtend,
-					&EstadoSTriag1,
-					&EstadoSTriag2,
-					&FilaEventosChegadaSTriag,
-					&TempoProximaChegadaSTriag,
-					&TempoPartidaSTriag1,
-					&TempoPartidaSTriag2,
-					&TempoTotalEsperaSTriag,
-					&TempoOcupacaoSTriag1,
-					&TempoOcupacaoSTriag2,
-					&TotalClientesFilaSTriag);
+		&NumClientesSistema,
+		&EstadoSAtend1,
+		&EstadoSAtend2,
+		&FilaEventosChegadaSAtend,
+		&Clock,
+		&TempoProximaChegadaSAtend,
+		&TempoPartidaSAtend1,
+		&TempoPartidaSAtend2,
+		&TempoTotalEsperaSAtend,
+		&TempoOcupacaoSAtend1,
+		&TempoOcupacaoSAtend2,
+		&TempoTotalPermanencia,
+		&TotalClientesFilaSAtend,
+		&EstadoSTriag1,
+		&EstadoSTriag2,
+		&FilaEventosChegadaSTriag,
+		&TempoProximaChegadaSTriag,
+		&TempoPartidaSTriag1,
+		&TempoPartidaSTriag2,
+		&TempoTotalEsperaSTriag,
+		&TempoOcupacaoSTriag1,
+		&TempoOcupacaoSTriag2,
+		&TotalClientesFilaSTriag);
 
 	while (flag == 0)
 	{
@@ -107,74 +107,53 @@ main()
 		{
 		case 0: NumClientes++;
 			EventoChegada(Clock,
-						&NumClientesSistema,
-						&EstadoSAtend1,
-						&EstadoSAtend2,
-						&FilaEventosChegadaSAtend,
-						&TempoProximaChegadaSAtend,
-						&TempoPartidaSAtend1,
-						&TempoPartidaSAtend2,
-						&TempoProximaChegadaSTriag,
-						&TempoOcupacaoSAtend1,
-						&TempoOcupacaoSAtend2,
-						&TempoTotalPermanencia,
-						&TotalClientesFilaSAtend);
+				&NumClientesSistema,
+				&EstadoSAtend1,
+				&EstadoSAtend2,
+				&FilaEventosChegadaSAtend,
+				&TempoProximaChegadaSAtend,
+				&TempoPartidaSAtend1,
+				&TempoPartidaSAtend2,
+				&TempoProximaChegadaSTriag,
+				&TempoOcupacaoSAtend1,
+				&TempoOcupacaoSAtend2,
+				&TempoTotalPermanencia,
+				&TotalClientesFilaSAtend);
 
 			if (NumClientes == MaximoClientes)
 				TempoProximaChegadaSAtend = Infinito;
 			break;
 		case 1: EventoPartida1(Clock,
-								&NumClientesSistema,
-								&EstadoSAtend1,
-								&FilaEventosChegadaSAtend,
-								&TempoPartidaSAtend1,
-								&TempoProximaChegadaSTriag,
-								&TempoOcupacaoSAtend1,
-								&TempoTotalEsperaSAtend,
-								&TempoTotalPermanencia);
+			&NumClientesSistema,
+			&EstadoSAtend1,
+			&FilaEventosChegadaSAtend,
+			&TempoPartidaSAtend1,
+			&TempoProximaChegadaSTriag,
+			&TempoOcupacaoSAtend1,
+			&TempoTotalEsperaSAtend,
+			&TempoTotalPermanencia);
 			break;
 		case 2: EventoPartida2(Clock,
-								&NumClientesSistema,
-								&EstadoSAtend2,
-								&FilaEventosChegadaSAtend,
-								&TempoPartidaSAtend2,
-								&TempoProximaChegadaSTriag,
-								&TempoOcupacaoSAtend2,
-								&TempoTotalEsperaSAtend,
-								&TempoTotalPermanencia);
+			&NumClientesSistema,
+			&EstadoSAtend2,
+			&FilaEventosChegadaSAtend,
+			&TempoPartidaSAtend2,
+			&TempoProximaChegadaSTriag,
+			&TempoOcupacaoSAtend2,
+			&TempoTotalEsperaSAtend,
+			&TempoTotalPermanencia);
 			break;
 		case 3: EventoChegadaSTriag(Clock,
-									&NumClientesSistema,
-									&EstadoSTriag1,
-									&EstadoSTriag2,
-									&FilaEventosChegadaSTriag,
-									&TempoProximaChegadaSTriag,
-									&TempoPartidaSTriag1,
-									&TempoPartidaSTriag2,
-									&TempoOcupacaoSTriag1,
-									&TempoOcupacaoSTriag2,
-									&TempoTotalPermanencia,
-									&TotalClientesFilaSTriag);
-			break;
-		case 4:  EventoPartidaSTriag1(Clock,
-										&NumClientesSistema,
-										&EstadoSTriag1,
-										&FilaEventosChegadaSTriag,
-										&TempoPartidaSTriag1,
-										&TempoProximaChegadaSTriag,
-										&TempoOcupacaoSTriag1,
-										&TempoTotalEsperaSTriag,
-										&TempoTotalPermanencia);										
-			break;
-		case 5:  EventoPartidaSTriag2(Clock,
-										&NumClientesSistema,
-										&EstadoSTriag2,
-										&FilaEventosChegadaSTriag,
-										&TempoPartidaSTriag2,
-										&TempoProximaChegadaSTriag,
-										&TempoOcupacaoSTriag2,
-										&TempoTotalEsperaSTriag,
-										&TempoTotalPermanencia);										
+			&EstadoSTriag1,
+			&EstadoSTriag2,
+			&FilaEventosChegadaSTriag,
+			&TempoProximaChegadaSTriag,
+			&TempoPartidaSTriag1,
+			&TempoPartidaSTriag2,
+			&TempoOcupacaoSTriag1,
+			&TempoOcupacaoSTriag2,
+			&TempoTotalPermanencia,
+			&TotalClientesFilaSTriag);
 			break;
 		default: terminar = 1;
 		}
@@ -211,4 +190,6 @@ main()
 		ShowQueue(FilaEventosChegadaSAtend);
 
 	system("PAUSE");
+
+
 }
