@@ -105,11 +105,11 @@ void GestaoTempo(float TempoProximaChegadaSAtend,
 		*Tempo = TempoPartidaSAtend2;
 		*TipoEvento = 2;  // Partida2 / Departure2
 	}
-	if (TempoProximaChegadaSTriag < *Tempo)
-	{
-		*Tempo = TempoProximaChegadaSTriag;
-		*TipoEvento = 3;  // Partida1 / Departure1
-	}
+	//if (TempoProximaChegadaSTriag < *Tempo)
+	//{
+	//	*Tempo = TempoProximaChegadaSTriag;
+	//	*TipoEvento = 3;  // Partida1 / Departure1
+	//}
 	if (TempoPartidaSTriag1 < *Tempo)
 	{
 		*Tempo = TempoPartidaSTriag1;
