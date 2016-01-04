@@ -241,6 +241,316 @@ void EventoPartidaSAtend2(float Tempo,
 	}
 }
 
+void EventoPartidaSTriag1(float Tempo, 
+						int *NumClientesSistema, 
+						int *EstadoSTriag1,
+						float **FilaSTriag,
+						float *TempoPartidaSTriag1,
+						float *TempoOcupacaoSTriag1, 
+						float *TempoTotalSTriag, 
+						float *TempoTotalPermanencia)
+{
+	float TempoChegadaCliente, TempoEsperaCliente, TempoServico;
+
+	if (EmptyQueue(*FilaSTriag))
+	{
+		*EstadoSTriag1 = 0;
+		*TempoPartidaSTriag1 = Infinito;
+	}
+	else
+	{
+		TempoChegadaCliente = Front(*FilaSTriag);
+		TempoEsperaCliente = Tempo - TempoChegadaCliente;
+		*NumClientesSistema = *NumClientesSistema + 1;
+		TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+		*TempoPartidaSTriag1 = Tempo + TempoServico;
+		*FilaSTriag = RemoveQueue(*FilaSTriag);
+		*TempoTotalSTriag = *TempoTotalSTriag + TempoEsperaCliente;
+		*TempoOcupacaoSTriag1 = *TempoOcupacaoSTriag1 + TempoServico;
+		*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico + TempoEsperaCliente;
+	}
+}
+
+
+void EventoPartidaSTriag2(float Tempo, 
+						int *NumClientesSistema, 
+						int *EstadoSTriag2,
+						float **FilaSTriag,
+						float *TempoPartidaSTriag2,
+						float *TempoOcupacaoSTriag2, 
+						float *TempoTotalSTriag, 
+						float *TempoTotalPermanencia)
+{
+	float TempoChegadaCliente, TempoEsperaCliente, TempoServico;
+
+	if (EmptyQueue(*FilaSTriag))
+	{
+		*EstadoSTriag2 = 0;
+		*TempoPartidaSTriag2 = Infinito;
+	}
+	else
+	{
+		TempoChegadaCliente = Front(*FilaSTriag);
+		TempoEsperaCliente = Tempo - TempoChegadaCliente;
+		*NumClientesSistema = *NumClientesSistema + 1;
+		TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+		*TempoPartidaSTriag2 = Tempo + TempoServico;
+		*FilaSTriag = RemoveQueue(*FilaSTriag);
+		*TempoTotalSTriag = *TempoTotalSTriag + TempoServico;
+		*TempoOcupacaoSTriag2 = *TempoOcupacaoSTriag2 + TempoServico;
+		*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico + TempoEsperaCliente;
+	}
+}
+
+
+void EventoPartidaSMed1(float Tempo, 
+	int *NumClientesSistema, 
+	int *EstadoSMed1,
+	float **FilaSMed1,
+	float *TempoPartidaSMed1,
+	float *TempoOcupacaoSMed1, 
+	float *TempoTotalSMed, 
+	float *TempoTotalPermanencia)
+{
+	float TempoChegadaCliente, TempoEsperaCliente, TempoServico;
+
+	if (EmptyQueue(*FilaSMed1))
+	{
+		*EstadoSMed1 = 0;
+		*TempoPartidaSMed1 = Infinito;
+	}
+	else
+	{
+		TempoChegadaCliente = Front(*FilaSMed1);
+		TempoEsperaCliente = Tempo - TempoChegadaCliente;
+		*NumClientesSistema = *NumClientesSistema + 1;
+		TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+		*TempoPartidaSMed1 = Tempo + TempoServico;
+		*FilaSMed1 = RemoveQueue(*FilaSMed1);
+		*TempoTotalSMed = *TempoTotalSMed + TempoEsperaCliente;
+		*TempoOcupacaoSMed1 = *TempoOcupacaoSMed1 + TempoServico;
+		*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico + TempoEsperaCliente;
+	}
+}
+
+
+void EventoPartidaSMed2(float Tempo, 
+	int *NumClientesSistema, 
+	int *EstadoSMed2,
+	float **FilaSMed2,
+	float *TempoPartidaSMed2,
+	float *TempoOcupacaoSMed2, 
+	float *TempoTotalSMed, 
+	float *TempoTotalPermanencia)
+{
+	float TempoChegadaCliente, TempoEsperaCliente, TempoServico;
+
+	if (EmptyQueue(*FilaSMed2))
+	{
+		*EstadoSMed2 = 0;
+		*TempoPartidaSMed2 = Infinito;
+	}
+	else
+	{
+		TempoChegadaCliente = Front(*FilaSMed2);
+		TempoEsperaCliente = Tempo - TempoChegadaCliente;
+		*NumClientesSistema = *NumClientesSistema + 1;
+		TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+		*TempoPartidaSMed2 = Tempo + TempoServico;
+		*FilaSMed2 = RemoveQueue(*FilaSMed2);
+		*TempoTotalSMed = *TempoTotalSMed + TempoEsperaCliente;
+		*TempoOcupacaoSMed2 = *TempoOcupacaoSMed2 + TempoServico;
+		*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico + TempoEsperaCliente;
+	}
+}
+
+
+void EventoPartidaSMed3(float Tempo, 
+						int *NumClientesSistema, 
+						int *EstadoSMed3,
+						float **FilaSMed3,
+						float *TempoPartidaSMed3,
+						float *TempoOcupacaoSMed3, 
+						float *TempoTotalSMed, 
+						float *TempoTotalPermanencia)
+{
+	float TempoChegadaCliente, TempoEsperaCliente, TempoServico;
+
+	if (EmptyQueue(*FilaSMed3))
+	{
+		*EstadoSMed3 = 0;
+		*TempoPartidaSMed3 = Infinito;
+	}
+	else
+	{
+		TempoChegadaCliente = Front(*FilaSMed3);
+		TempoEsperaCliente = Tempo - TempoChegadaCliente;
+		*NumClientesSistema = *NumClientesSistema + 1;
+		TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+		*TempoPartidaSMed3 = Tempo + TempoServico;
+		*FilaSMed3 = RemoveQueue(*FilaSMed3);
+		*TempoTotalSMed = *TempoTotalSMed + TempoEsperaCliente;
+		*TempoOcupacaoSMed3 = *TempoOcupacaoSMed3 + TempoServico;
+		*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico + TempoEsperaCliente;
+	}
+}
+
+
+void EventoPartidaSMed4(float Tempo, 
+						int *NumClientesSistema, 
+						int *EstadoSMed4,
+						float **FilaSMed4,
+						float *TempoPartidaSMed4,
+						float *TempoOcupacaoSMed4, 
+						float *TempoTotalSMed, 
+						float *TempoTotalPermanencia)
+{
+	float TempoChegadaCliente, TempoEsperaCliente, TempoServico;
+
+	if (EmptyQueue(*FilaSMed4))
+	{
+		*EstadoSMed4 = 0;
+		*TempoPartidaSMed4 = Infinito;
+	}
+	else
+	{
+		TempoChegadaCliente = Front(*FilaSMed4);
+		TempoEsperaCliente = Tempo - TempoChegadaCliente;
+		*NumClientesSistema = *NumClientesSistema + 1;
+		TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+		*TempoPartidaSMed4 = Tempo + TempoServico;
+		*FilaSMed4 = RemoveQueue(*FilaSMed4);
+		*TempoTotalSMed = *TempoTotalSMed + TempoEsperaCliente;
+		*TempoOcupacaoSMed4 = *TempoOcupacaoSMed4 + TempoServico;
+		*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico + TempoEsperaCliente;
+	}
+}
+
+
+
+void EventoPartidaSExam1(float Tempo, 
+						int *NumClientesSistema, 
+						int *EstadoSExam1,
+						float **FilaSExam1,
+						float *TempoPartidaSExam1,
+						float *TempoOcupacaoSExam1, 
+						float *TempoTotalSExam, 
+						float *TempoTotalPermanencia)
+{
+	float TempoChegadaCliente, TempoEsperaCliente, TempoServico;
+
+	if (EmptyQueue(*FilaSExam1))
+	{
+		*EstadoSExam1 = 0;
+		*TempoPartidaSExam1 = Infinito;
+	}
+	else
+	{
+		TempoChegadaCliente = Front(*FilaSExam1);
+		TempoEsperaCliente = Tempo - TempoChegadaCliente;
+		*NumClientesSistema = *NumClientesSistema + 1;
+		TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+		*TempoPartidaSExam1 = Tempo + TempoServico;
+		*FilaSExam1 = RemoveQueue(*FilaSExam1);
+		*TempoTotalSExam = *TempoTotalSExam + TempoEsperaCliente;
+		*TempoOcupacaoSExam1 = *TempoOcupacaoSExam1 + TempoServico;
+		*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico + TempoEsperaCliente;
+	}
+}
+
+
+void EventoPartidaSExam2(float Tempo, 
+						int *NumClientesSistema, 
+						int *EstadoSExam2,
+						float **FilaSExam2,
+						float *TempoPartidaSExam2,
+						float *TempoOcupacaoSExam2, 
+						float *TempoTotalSExam, 
+						float *TempoTotalPermanencia)
+{
+	float TempoChegadaCliente, TempoEsperaCliente, TempoServico;
+
+	if (EmptyQueue(*FilaSExam2))
+	{
+		*EstadoSExam2 = 0;
+		*TempoPartidaSExam2 = Infinito;
+	}
+	else
+	{
+		TempoChegadaCliente = Front(*FilaSExam2);
+		TempoEsperaCliente = Tempo - TempoChegadaCliente;
+		*NumClientesSistema = *NumClientesSistema + 1;
+		TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+		*TempoPartidaSExam2 = Tempo + TempoServico;
+		*FilaSExam2 = RemoveQueue(*FilaSExam2);
+		*TempoTotalSExam = *TempoTotalSExam + TempoEsperaCliente;
+		*TempoOcupacaoSExam2 = *TempoOcupacaoSExam2 + TempoServico;
+		*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico + TempoEsperaCliente;
+	}
+}
+
+
+void EventoPartidaSExam3(float Tempo, 
+						int *NumClientesSistema, 
+						int *EstadoSExam3,
+						float **FilaSExam3,
+						float *TempoPartidaSExam3,
+						float *TempoOcupacaoSExam3, 
+						float *TempoTotalSExam, 
+						float *TempoTotalPermanencia)
+{
+	float TempoChegadaCliente, TempoEsperaCliente, TempoServico;
+
+	if (EmptyQueue(*FilaSExam3))
+	{
+		*EstadoSExam3 = 0;
+		*TempoPartidaSExam3 = Infinito;
+	}
+	else
+	{
+		TempoChegadaCliente = Front(*FilaSExam3);
+		TempoEsperaCliente = Tempo - TempoChegadaCliente;
+		*NumClientesSistema = *NumClientesSistema + 1;
+		TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+		*TempoPartidaSExam3 = Tempo + TempoServico;
+		*FilaSExam3 = RemoveQueue(*FilaSExam3);
+		*TempoTotalSExam = *TempoTotalSExam + TempoEsperaCliente;
+		*TempoOcupacaoSExam3 = *TempoOcupacaoSExam3 + TempoServico;
+		*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico + TempoEsperaCliente;
+	}
+}
+
+void EventoPartidaSExam4(float Tempo, 
+						int *NumClientesSistema, 
+						int *EstadoSExam4,
+						float **FilaSExam4,
+						float *TempoPartidaSExam4,
+						float *TempoOcupacaoSExam4, 
+						float *TempoTotalSExam, 
+						float *TempoTotalPermanencia)
+{
+	float TempoChegadaCliente, TempoEsperaCliente, TempoServico;
+
+	if (EmptyQueue(*FilaSExam4))
+	{
+		*EstadoSExam4 = 0;
+		*TempoPartidaSExam4 = Infinito;
+	}
+	else
+	{
+		TempoChegadaCliente = Front(*FilaSExam4);
+		TempoEsperaCliente = Tempo - TempoChegadaCliente;
+		*NumClientesSistema = *NumClientesSistema + 1;
+		TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+		*TempoPartidaSExam4 = Tempo + TempoServico;
+		*FilaSExam4 = RemoveQueue(*FilaSExam4);
+		*TempoTotalSExam = *TempoTotalSExam + TempoEsperaCliente;
+		*TempoOcupacaoSExam4 = *TempoOcupacaoSExam4 + TempoServico;
+		*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico + TempoEsperaCliente;
+	}
+}
+
+
 
 //void EventoChegada(float Tempo,
 //	int *NumClientesSistema,
