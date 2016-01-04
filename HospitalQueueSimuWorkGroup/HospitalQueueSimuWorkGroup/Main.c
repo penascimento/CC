@@ -86,4 +86,6 @@ void main()
 	srand((unsigned int)time(NULL));
 
 	TempoPrimeiraChegada = DeterminarTempoEntreChegadas(2.0);
+
+
 }

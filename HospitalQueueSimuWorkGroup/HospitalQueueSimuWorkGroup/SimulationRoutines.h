@@ -550,6 +550,53 @@ void EventoPartidaSExam4(float Tempo,
 	}
 }
 
+void EventoChegadaSTriag(float Tempo,
+						int *NumClientesSistema,
+						int *EstadoSTriag1,
+						int *EstadoSTriag2,
+						float **FilaSTriag,
+						float *TempoProximaChegada,
+						float *TempoPartidaSTriag1,
+						float *TempoPartidaSTriag2,
+						float *TempoOcupacaoSTriag1,
+						float *TempoOcupacaoSTriag2,
+						float *TempoTotalPermanencia,
+						int *TotalClientesFilaSTriag)
+{
+	float	TempoEntreChegadas,
+			TempoServico;
+
+	TempoEntreChegadas = DeterminarTempoEntreChegadas(2.0);
+	*TempoProximaChegada = Tempo + TempoEntreChegadas;
+
+	if (*EstadoSTriag1 == 1)
+		if (*EstadoSTriag2 == 1)
+		{
+			*FilaSTriag = InsertQueue(Tempo, *FilaSTriag);
+			*TotalClientesFilaSTriag = *TotalClientesFilaSTriag + 1;
+		}
+		else
+		{
+			*NumClientesSistema = *NumClientesSistema + 1;
+			*EstadoSTriag2 = 1;
+			TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+			*TempoPartidaSTriag2 = Tempo + TempoServico;
+			*TempoOcupacaoSTriag2 = *TempoOcupacaoSTriag2 + TempoServico;
+			*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico;
+		}
+	else
+	{
+		*NumClientesSistema = *NumClientesSistema + 1;
+		*EstadoSTriag1 = 1;
+		TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+		*TempoPartidaSTriag1 = Tempo + TempoServico;
+		*TempoOcupacaoSTriag1 = *TempoOcupacaoSTriag1 + TempoServico;
+		*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico;
+	}
+
+}
+
+
 
 
 //void EventoChegada(float Tempo,
