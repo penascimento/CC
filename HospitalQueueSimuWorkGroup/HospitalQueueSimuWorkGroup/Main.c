@@ -144,6 +144,7 @@ main()
 								&TempoTotalPermanencia);
 			break;
 		case 3: EventoChegadaSTriag(Clock,
+									&NumClientesSistema,
 									&EstadoSTriag1,
 									&EstadoSTriag2,
 									&FilaEventosChegadaSTriag,
@@ -155,6 +156,26 @@ main()
 									&TempoTotalPermanencia,
 									&TotalClientesFilaSTriag);
 			break;
+		case 4:  EventoPartidaSTriag1(Clock,
+										&NumClientesSistema,
+										&EstadoSTriag1,
+										&FilaEventosChegadaSTriag,
+										&TempoPartidaSTriag1,
+										&TempoProximaChegadaSTriag,
+										&TempoOcupacaoSTriag1,
+										&TempoTotalEsperaSTriag,
+										&TempoTotalPermanencia);										
+			break;
+		case 5:  EventoPartidaSTriag2(Clock,
+										&NumClientesSistema,
+										&EstadoSTriag2,
+										&FilaEventosChegadaSTriag,
+										&TempoPartidaSTriag2,
+										&TempoProximaChegadaSTriag,
+										&TempoOcupacaoSTriag2,
+										&TempoTotalEsperaSTriag,
+										&TempoTotalPermanencia);										
+			break;
 		default: terminar = 1;
 		}
 
@@ -164,7 +185,7 @@ main()
 			break;
 		}
 
-		printf("NumClientes = %d", NumClientes);
+		printf("\nNumClientes = %d\n", NumClientes);
 		printf("\n NumClientesSistema = %d \n", NumClientesSistema);
 	}
 
@@ -190,6 +211,4 @@ main()
 		ShowQueue(FilaEventosChegadaSAtend);
 
 	system("PAUSE");
-
-
 }
