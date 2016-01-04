@@ -157,67 +157,67 @@ void GestaoTempo(float TempoProximaChegada,
 				int *TipoEvento)
 {
 	*Tempo = TempoProximaChegada;
-	*TipoEvento = 0;  // Chegada ao Hospital
+	*TipoEvento = 0;			// Chegada ao servico de atendimento
 	if (TempoPartidaSAtend1 < *Tempo)
 	{
 		*Tempo = TempoPartidaSAtend1;
-		*TipoEvento = 1;  // Chegada ao servico de atendimento 1
+		*TipoEvento = 1;		// Partida do atendimento 1
 	}
 	if (TempoPartidaSAtend2 < *Tempo)
 	{
 		*Tempo = TempoPartidaSAtend2;
-		*TipoEvento = 2;  // Chegada ao servico de atendimento 2
+		*TipoEvento = 2;		// Partida do atendimento 2
 	}
-	if (TempoPartidaSTriag1 < *Tempo)
-	{
-		*Tempo = TempoPartidaSTriag1;
-		*TipoEvento = 3;  // Chegada a Triagem 1
-	}
-	if (TempoPartidaSTriag2 < *Tempo)
-	{
-		*Tempo = TempoPartidaSTriag2;
-		*TipoEvento = 4;  // Chegada a Triagem 2
-	}
-	if (TempoPartidaSMed1 < *Tempo)
-	{
-		*Tempo = TempoPartidaSMed1;
-		*TipoEvento = 5;  // Chegada ao servicoMedico1
-	}
-	if (TempoPartidaSMed2 < *Tempo)
-	{
-		*Tempo = TempoPartidaSMed2;
-		*TipoEvento = 6;  // Chegada ao servicoMedico2
-	}
-	if (TempoPartidaSMed3 < *Tempo)
-	{
-		*Tempo = TempoPartidaSMed3;
-		*TipoEvento = 7;  // Chegada ao servicoMedico3
-	}
-	if (TempoPartidaSMed4 < *Tempo)
-	{
-		*Tempo = TempoPartidaSMed4;
-		*TipoEvento = 8;  // Chegada ao servicoMedico3
-	}
-	if (TempoPartidaSExam1 < *Tempo)
-	{
-		*Tempo = TempoPartidaSExam1;
-		*TipoEvento = 9;  // Chegada ao Exame1
-	}
-	if (TempoPartidaSExam2 < *Tempo)
-	{
-		*Tempo = TempoPartidaSExam2;
-		*TipoEvento = 10;  // Chegada ao Exame2
-	}
-	if (TempoPartidaSExam3 < *Tempo)
-	{
-		*Tempo = TempoPartidaSExam3;
-		*TipoEvento = 11;  // Chegada ao Exame3
-	}
-	if (TempoPartidaSExam4 < *Tempo)
-	{
-		*Tempo = TempoPartidaSExam4;
-		*TipoEvento = 12;  // Chegada ao Exame4
-	}
+	//if (TempoPartidaSTriag1 < *Tempo)
+	//{
+	//	*Tempo = TempoPartidaSTriag1;
+	//	*TipoEvento = 3;		//  Partida da Triagem 1
+	//}
+	//if (TempoPartidaSTriag2 < *Tempo)
+	//{
+	//	*Tempo = TempoPartidaSTriag2;
+	//	*TipoEvento = 4;  //  Partida da Triagem 2
+	//}
+	//if (TempoPartidaSMed1 < *Tempo)
+	//{
+	//	*Tempo = TempoPartidaSMed1;
+	//	*TipoEvento = 5;  //  Partida do servicoMedico1
+	//}
+	//if (TempoPartidaSMed2 < *Tempo)
+	//{
+	//	*Tempo = TempoPartidaSMed2;
+	//	*TipoEvento = 6;  //  Partida do servicoMedico2
+	//}
+	//if (TempoPartidaSMed3 < *Tempo)
+	//{
+	//	*Tempo = TempoPartidaSMed3;
+	//	*TipoEvento = 7;  //  Partida do servicoMedico3
+	//}
+	//if (TempoPartidaSMed4 < *Tempo)
+	//{
+	//	*Tempo = TempoPartidaSMed4;
+	//	*TipoEvento = 8;  //  Partida do servicoMedico4
+	//}
+	//if (TempoPartidaSExam1 < *Tempo)
+	//{
+	//	*Tempo = TempoPartidaSExam1;
+	//	*TipoEvento = 9;  // Partida do Exame1
+	//}
+	//if (TempoPartidaSExam2 < *Tempo)
+	//{
+	//	*Tempo = TempoPartidaSExam2;
+	//	*TipoEvento = 10;  // Partida do Exame2
+	//}
+	//if (TempoPartidaSExam3 < *Tempo)
+	//{
+	//	*Tempo = TempoPartidaSExam3;
+	//	*TipoEvento = 11;  // Partida do Exame3
+	//}
+	//if (TempoPartidaSExam4 < *Tempo)
+	//{
+	//	*Tempo = TempoPartidaSExam4;
+	//	*TipoEvento = 12;  // Partida do Exame4
+	//}
 	if (*Tempo == Infinito)
 		*TipoEvento = -1;
 }
