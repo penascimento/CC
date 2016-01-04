@@ -23,33 +23,116 @@ float DeterminarTempoServico(float A, float B, float T0)
 
 void Inicializacao(float Time,
 	int *NumClientesSistema,
-	int *EstadoAgente1,
-	int *EstadoAgente2,
-	float **FilaEventosChegada,
+	int *EstadoSAtend1,
+	int *EstadoSAtend2,
+	int *EstadoSTriag1,
+	int *EstadoSTriag2,
+	int *EstadoSMed1,
+	int *EstadoSMed2,
+	int *EstadoSMed3,
+	int *EstadoSMed4,
+	int *EstadoSExam1,
+	int *EstadoSExam2,
+	int *EstadoSExam3,
+	int *EstadoSExam4,
+	float **FilaSAtend,
+	float **FilaSTriag,
+	float **FilaSMed1,
+	float **FilaSMed2,
+	float **FilaSMed3,
+	float **FilaSMed4,
+	float **FilaSExam1,
+	float **FilaSExam2,
+	float **FilaSExam3,
+	float **FilaSExam4,
 	float *Clock,
 	float *TempoProximaChegada,
-	float *TempoPartida1,
-	float *TempoPartida2,
-	float *TempoTotalEspera,
-	float *TempoOcupacaoAgente1,
-	float *TempoOcupacaoAgente2,
+	float *TempoPartidaSAtend1,
+	float *TempoPartidaSAtend2,	
+	float *TempoPartidaSTriag1,
+	float *TempoPartidaSTriag2,
+	float *TempoPartidaSMed1,
+	float *TempoPartidaSMed2,
+	float *TempoPartidaSMed3,
+	float *TempoPartidaSMed4,	
+	float *TempoPartidaSExam1,
+	float *TempoPartidaSExam2,
+	float *TempoPartidaSExam3,
+	float *TempoPartidaSExam4,
+	float *TempoTotalSAtend,
+	float *TempoTotalSTriag,
+	float *TempoTotalSMed,
+	float *TempoTotalSExam,
+	float *TempoOcupacaoSAtend1,
+	float *TempoOcupacaoSAtend2,
+	float *TempoOcupacaoSTriag1,
+	float *TempoOcupacaoSTriag2,
+	float *TempoOcupacaoSMed1,
+	float *TempoOcupacaoSMed2,
+	float *TempoOcupacaoSMed3,
+	float *TempoOcupacaoSMed4,
+	float *TempoOcupacaoSExam1,
+	float *TempoOcupacaoSExam2,
+	float *TempoOcupacaoSExam3,
+	float *TempoOcupacaoSExam4,
 	float *TempoTotalPermanencia,
 	int *TotalClientesFila)
 {
 	*NumClientesSistema = 0;
-	*EstadoAgente1 = 0;  // livre / available
-	*EstadoAgente2 = 0;  // livre / available 
-	*FilaEventosChegada = CreateQueue();
+	*EstadoSAtend1 = 0;  // livre / available
+	*EstadoSAtend2 = 0;  // livre / available 
+	*EstadoSTriag1 = 0;  // livre / available
+	*EstadoSTriag2 = 0;  // livre / available 
+	*EstadoSMed1 = 0;  // livre / available
+	*EstadoSMed2 = 0;  // livre / available 
+	*EstadoSMed3 = 0;  // livre / available
+	*EstadoSMed4 = 0;  // livre / available 
+
+	*FilaSAtend = CreateQueue();
+	*FilaSTriag = CreateQueue();
+	*FilaSMed1 = CreateQueue();
+	*FilaSMed2 = CreateQueue();
+	*FilaSMed3 = CreateQueue();
+	*FilaSMed4 = CreateQueue();
+	*FilaSExam1 = CreateQueue();
+	*FilaSExam2 = CreateQueue();
+	*FilaSExam3 = CreateQueue();
+	*FilaSExam4 = CreateQueue();
+
 	*Clock = 0.0;
 	*TempoProximaChegada = Time;
-	*TempoPartida1 = Infinito;
-	*TempoPartida2 = Infinito;
-	*TempoTotalEspera = 0.0;
-	*TempoOcupacaoAgente1 = 0.0;
-	*TempoOcupacaoAgente2 = 0.0;
+	*TempoPartidaSAtend1 = Infinito;
+	*TempoPartidaSAtend2 = Infinito;
+	*TempoPartidaSTriag1 = Infinito;
+	*TempoPartidaSTriag2 = Infinito;
+	*TempoPartidaSMed1 = Infinito;
+	*TempoPartidaSMed2 = Infinito;
+	*TempoPartidaSMed3 = Infinito;
+	*TempoPartidaSMed4 = Infinito;
+	*TempoPartidaSExam1 = Infinito;
+	*TempoPartidaSExam2 = Infinito;
+	*TempoPartidaSExam3 = Infinito;
+	*TempoPartidaSExam4 = Infinito;
+	*TempoTotalSAtend = 0.0;
+	*TempoTotalSTriag = 0.0;
+	*TempoTotalSMed = 0.0;
+	*TempoTotalSExam = 0.0;
+	*TempoOcupacaoSAtend1 = 0.0;
+	*TempoOcupacaoSAtend2 = 0.0;
+	*TempoOcupacaoSTriag1 = 0.0;
+	*TempoOcupacaoSTriag2 = 0.0;
+	*TempoOcupacaoSMed1 = 0.0;
+	*TempoOcupacaoSMed2 = 0.0;
+	*TempoOcupacaoSMed3 = 0.0;
+	*TempoOcupacaoSMed4 = 0.0;
+	*TempoOcupacaoSExam1 = 0.0;
+	*TempoOcupacaoSExam2 = 0.0;
+	*TempoOcupacaoSExam3 = 0.0;
+	*TempoOcupacaoSExam4 = 0.0;
 	*TempoTotalPermanencia = 0.0;
 	*TotalClientesFila = 0;
 }
+
 
 void GestaoTempo(float TempoProximaChegada,
 				float TempoPartidaSAtend1,
