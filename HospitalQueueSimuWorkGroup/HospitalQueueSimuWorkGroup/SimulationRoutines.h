@@ -52,20 +52,20 @@ void Inicializacao(float Time,
 }
 
 void GestaoTempo(float TempoProximaChegada,
-	float TempoPartidaSAtend1,
-	float TempoPartidaSAtend2,
-	float TempoPartidaSTriag1,
-	float TempoPartidaSTriag2,
-	float TempoPartidaSMed1,
-	float TempoPartidaSMed2,
-	float TempoPartidaSMed3,
-	float TempoPartidaSMed4,
-	float TempoPartidaSExam1,
-	float TempoPartidaSExam2,
-	float TempoPartidaSExam3,
-	float TempoPartidaSExam4,
-	float *Tempo,
-	int *TipoEvento)
+				float TempoPartidaSAtend1,
+				float TempoPartidaSAtend2,
+				float TempoPartidaSTriag1,
+				float TempoPartidaSTriag2,
+				float TempoPartidaSMed1,
+				float TempoPartidaSMed2,
+				float TempoPartidaSMed3,
+				float TempoPartidaSMed4,
+				float TempoPartidaSExam1,
+				float TempoPartidaSExam2,
+				float TempoPartidaSExam3,
+				float TempoPartidaSExam4,
+				float *Tempo,
+				int *TipoEvento)
 {
 	*Tempo = TempoProximaChegada;
 	*TipoEvento = 0;  // Chegada ao Hospital
@@ -132,6 +132,55 @@ void GestaoTempo(float TempoProximaChegada,
 	if (*Tempo == Infinito)
 		*TipoEvento = -1;
 }
+
+void EventoChegadaSAtend(float Tempo,
+						int *NumClientesSistema,
+						int *EstadoSAtend1,
+						int *EstadoSAtend2,
+						float **FilaSAtend,
+						float *TempoProximaChegada,
+						float *TempoPartidaSAtend1,
+						float *TempoPartidaSAtend2,
+						float *TempoOcupacaoSAtend1,
+						float *TempoOcupacaoSAtend2,
+						float *TempoTotalPermanencia,
+						int *TotalClientesFilaSAtend)
+
+{
+	float	TempoEntreChegadas,
+		TempoServico;
+
+	TempoEntreChegadas = DeterminarTempoEntreChegadas(2.0);
+	*TempoProximaChegada = Tempo + TempoEntreChegadas;
+
+
+	if (*EstadoSAtend1 == 1)
+		if (*EstadoSAtend2 == 1)
+		{
+			*FilaSAtend = InsertQueue(Tempo, *FilaSAtend);
+			*TotalClientesFilaSAtend = *TotalClientesFilaSAtend + 1;
+		}
+		else
+		{
+			*NumClientesSistema = *NumClientesSistema + 1;
+			*EstadoSAtend2 = 1;
+			TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+			*TempoPartidaSAtend2 = Tempo + TempoServico;
+			*TempoOcupacaoSAtend2 = *TempoOcupacaoSAtend2 + TempoServico;
+			*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico;
+		}
+	else
+	{
+		*NumClientesSistema = *NumClientesSistema + 1;
+		*EstadoSAtend1 = 1;
+		TempoServico = DeterminarTempoServico(0.5, 2.0, 1);
+		*TempoPartidaSAtend1 = Tempo + TempoServico;
+		*TempoOcupacaoSAtend1 = *TempoOcupacaoSAtend1 + TempoServico;
+		*TempoTotalPermanencia = *TempoTotalPermanencia + TempoServico;
+	}
+
+}
+
 
 /*
 void GestaoTempo(float TempoProximaChegada, float TempoPartida1, float TempoPartida2, float *Tempo, int *TipoEvento)
