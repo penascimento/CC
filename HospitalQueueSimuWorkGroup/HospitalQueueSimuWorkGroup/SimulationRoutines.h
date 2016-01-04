@@ -76,7 +76,10 @@ void Inicializacao(float Time,
 	float *TempoOcupacaoSExam3,
 	float *TempoOcupacaoSExam4,
 	float *TempoTotalPermanencia,
-	int *TotalClientesFila)
+	int *TotalClientesFilaSAtend,
+	int *TotalClientesFilaSTriag,
+	int *TotalClientesFilaSMed,
+	int *TotalClientesFilaSExam)
 {
 	*NumClientesSistema = 0;
 	*EstadoSAtend1 = 0;  // livre / available
@@ -130,7 +133,10 @@ void Inicializacao(float Time,
 	*TempoOcupacaoSExam3 = 0.0;
 	*TempoOcupacaoSExam4 = 0.0;
 	*TempoTotalPermanencia = 0.0;
-	*TotalClientesFila = 0;
+	*TotalClientesFilaSAtend = 0;
+	*TotalClientesFilaSTriag = 0;
+	*TotalClientesFilaSMed = 0;
+	*TotalClientesFilaSExam = 0;
 }
 
 
