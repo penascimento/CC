@@ -168,16 +168,16 @@ void GestaoTempo(float TempoProximaChegada,
 		*Tempo = TempoPartidaSAtend2;
 		*TipoEvento = 2;		// Partida do atendimento 2
 	}
-	//if (TempoPartidaSTriag1 < *Tempo)
-	//{
-	//	*Tempo = TempoPartidaSTriag1;
-	//	*TipoEvento = 3;		//  Partida da Triagem 1
-	//}
-	//if (TempoPartidaSTriag2 < *Tempo)
-	//{
-	//	*Tempo = TempoPartidaSTriag2;
-	//	*TipoEvento = 4;  //  Partida da Triagem 2
-	//}
+	if (TempoPartidaSTriag1 < *Tempo)
+	{
+		*Tempo = TempoPartidaSTriag1;
+		*TipoEvento = 3;		//  Partida da Triagem 1
+	}
+	if (TempoPartidaSTriag2 < *Tempo)
+	{
+		*Tempo = TempoPartidaSTriag2;
+		*TipoEvento = 4;  //  Partida da Triagem 2
+	}
 	//if (TempoPartidaSMed1 < *Tempo)
 	//{
 	//	*Tempo = TempoPartidaSMed1;

@@ -217,19 +217,32 @@ void main()
 			break;
 		case 2:
 			EventoPartidaSAtend2(Clock,
-				&NumClientesSistema,
-				&EstadoSAtend2,
-				&FilaSAtend,
-				&TempoPartidaSAtend2,
-				&TempoOcupacaoSAtend2,
-				&TempoTotalSAtend,
-				&TempoTotalPermanencia);
+								&NumClientesSistema,
+								&EstadoSAtend2,
+								&FilaSAtend,
+								&TempoPartidaSAtend2,
+								&TempoOcupacaoSAtend2,
+								&TempoTotalSAtend,
+								&TempoTotalPermanencia);
 			break;
-		/*case 3:
+		case 3:
+
+			EventoChegadaSTriag(Clock,
+								&NumClientesSistema,
+								&EstadoSTriag1,
+								&EstadoSTriag2,
+								&FilaSTriag,
+								&TempoProximaChegada,
+								&TempoPartidaSTriag1,
+								&TempoPartidaSTriag2,
+								&TempoOcupacaoSTriag1,
+								&TempoOcupacaoSTriag2,
+								&TempoTotalPermanencia,
+								&TotalClientesFilaSTriag);
 			break;
 		case 4:
 			break;
-		case 5:
+		/*case 5:
 			break;
 		case 6:
 			break;
