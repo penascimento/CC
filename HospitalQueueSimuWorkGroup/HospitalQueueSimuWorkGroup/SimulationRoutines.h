@@ -51,7 +51,89 @@ void Inicializacao(float Time,
 	*TotalClientesFila = 0;
 }
 
+void GestaoTempo(float TempoProximaChegada,
+	float TempoPartidaSAtend1,
+	float TempoPartidaSAtend2,
+	float TempoPartidaSTriag1,
+	float TempoPartidaSTriag2,
+	float TempoPartidaSMed1,
+	float TempoPartidaSMed2,
+	float TempoPartidaSMed3,
+	float TempoPartidaSMed4,
+	float TempoPartidaSExam1,
+	float TempoPartidaSExam2,
+	float TempoPartidaSExam3,
+	float TempoPartidaSExam4,
+	float *Tempo,
+	int *TipoEvento)
+{
+	*Tempo = TempoProximaChegada;
+	*TipoEvento = 0;  // Chegada ao Hospital
+	if (TempoPartidaSAtend1 < *Tempo)
+	{
+		*Tempo = TempoPartidaSAtend1;
+		*TipoEvento = 1;  // Chegada ao servico de atendimento 1
+	}
+	if (TempoPartidaSAtend2 < *Tempo)
+	{
+		*Tempo = TempoPartidaSAtend2;
+		*TipoEvento = 2;  // Chegada ao servico de atendimento 2
+	}
+	if (TempoPartidaSTriag1 < *Tempo)
+	{
+		*Tempo = TempoPartidaSTriag1;
+		*TipoEvento = 3;  // Chegada a Triagem 1
+	}
+	if (TempoPartidaSTriag2 < *Tempo)
+	{
+		*Tempo = TempoPartidaSTriag2;
+		*TipoEvento = 4;  // Chegada a Triagem 2
+	}
+	if (TempoPartidaSMed1 < *Tempo)
+	{
+		*Tempo = TempoPartidaSMed1;
+		*TipoEvento = 5;  // Chegada ao servicoMedico1
+	}
+	if (TempoPartidaSMed2 < *Tempo)
+	{
+		*Tempo = TempoPartidaSMed2;
+		*TipoEvento = 6;  // Chegada ao servicoMedico2
+	}
+	if (TempoPartidaSMed3 < *Tempo)
+	{
+		*Tempo = TempoPartidaSMed3;
+		*TipoEvento = 7;  // Chegada ao servicoMedico3
+	}
+	if (TempoPartidaSMed4 < *Tempo)
+	{
+		*Tempo = TempoPartidaSMed4;
+		*TipoEvento = 8;  // Chegada ao servicoMedico3
+	}
+	if (TempoPartidaSExam1 < *Tempo)
+	{
+		*Tempo = TempoPartidaSExam1;
+		*TipoEvento = 9;  // Chegada ao Exame1
+	}
+	if (TempoPartidaSExam2 < *Tempo)
+	{
+		*Tempo = TempoPartidaSExam2;
+		*TipoEvento = 10;  // Chegada ao Exame2
+	}
+	if (TempoPartidaSExam3 < *Tempo)
+	{
+		*Tempo = TempoPartidaSExam3;
+		*TipoEvento = 11;  // Chegada ao Exame3
+	}
+	if (TempoPartidaSExam4 < *Tempo)
+	{
+		*Tempo = TempoPartidaSExam4;
+		*TipoEvento = 12;  // Chegada ao Exame4
+	}
+	if (*Tempo == Infinito)
+		*TipoEvento = -1;
+}
 
+/*
 void GestaoTempo(float TempoProximaChegada, float TempoPartida1, float TempoPartida2, float *Tempo, int *TipoEvento)
 {
 	*Tempo = TempoProximaChegada;
@@ -69,6 +151,7 @@ void GestaoTempo(float TempoProximaChegada, float TempoPartida1, float TempoPart
 	if (*Tempo == Infinito)
 		*TipoEvento = -1;
 }
+*/
 
 
 void EventoChegada(float Tempo,
