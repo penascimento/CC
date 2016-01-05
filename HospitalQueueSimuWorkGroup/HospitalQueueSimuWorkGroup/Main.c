@@ -10,7 +10,6 @@
 
 main()
 {
-
 	int flag = 0,
 		terminar = 0,
 		MaximoClientes,
@@ -80,9 +79,6 @@ main()
 		GestaoTempo(TempoProximaChegadaSAtend,
 			TempoPartidaSAtend1,
 			TempoPartidaSAtend2,
-			TempoProximaChegadaSTriag,
-			TempoPartidaSTriag1,
-			TempoPartidaSTriag2,
 			&Clock,
 			&TipoEvento);
 
@@ -99,7 +95,6 @@ main()
 		printf("\n TempoPartidaSTriag1 = %f", TempoPartidaSTriag1);
 		printf("\n TempoPartidaSTriag2 = %f", TempoPartidaSTriag2);
 
-
 		if (TipoEvento == -1)
 			break;
 
@@ -114,7 +109,6 @@ main()
 				&TempoProximaChegadaSAtend,
 				&TempoPartidaSAtend1,
 				&TempoPartidaSAtend2,
-				&TempoProximaChegadaSTriag,
 				&TempoOcupacaoSAtend1,
 				&TempoOcupacaoSAtend2,
 				&TempoTotalPermanencia,
@@ -123,37 +117,23 @@ main()
 			if (NumClientes == MaximoClientes)
 				TempoProximaChegadaSAtend = Infinito;
 			break;
-		case 1: EventoPartida1(Clock,
+		case 1: EventoPartida(Clock,
 			&NumClientesSistema,
 			&EstadoSAtend1,
 			&FilaEventosChegadaSAtend,
 			&TempoPartidaSAtend1,
-			&TempoProximaChegadaSTriag,
 			&TempoOcupacaoSAtend1,
 			&TempoTotalEsperaSAtend,
 			&TempoTotalPermanencia);
 			break;
-		case 2: EventoPartida2(Clock,
+		case 2: EventoPartida(Clock,
 			&NumClientesSistema,
 			&EstadoSAtend2,
 			&FilaEventosChegadaSAtend,
 			&TempoPartidaSAtend2,
-			&TempoProximaChegadaSTriag,
 			&TempoOcupacaoSAtend2,
 			&TempoTotalEsperaSAtend,
 			&TempoTotalPermanencia);
-			break;
-		case 3: EventoChegadaSTriag(Clock,
-			&EstadoSTriag1,
-			&EstadoSTriag2,
-			&FilaEventosChegadaSTriag,
-			&TempoProximaChegadaSTriag,
-			&TempoPartidaSTriag1,
-			&TempoPartidaSTriag2,
-			&TempoOcupacaoSTriag1,
-			&TempoOcupacaoSTriag2,
-			&TempoTotalPermanencia,
-			&TotalClientesFilaSTriag);
 			break;
 		default: terminar = 1;
 		}
@@ -164,17 +144,17 @@ main()
 			break;
 		}
 
-		printf("\nNumClientes = %d\n", NumClientes);
+		printf("\n\nNumClientes = %d", NumClientes);
 		printf("\n NumClientesSistema = %d \n", NumClientesSistema);
 	}
 
 	printf("\n\nCONTADORES ESTATISTICOS\n");
 	printf("NumClientesSistema = %d\n", NumClientesSistema);
-	printf("TotalClientesFilaSAtend = %d\n", TotalClientesFilaSAtend);
+	printf("TotalClientesFila = %d\n", TotalClientesFilaSAtend);
 	printf("TempoTotalSistema = %.3f\n", TempoTotalSistema);
 	printf("TempoOcupacaoSAtend1 = %.3f\n", TempoOcupacaoSAtend1);
 	printf("TempoOcupacaoSAtend2 = %.3f\n", TempoOcupacaoSAtend2);
-	printf("TempoTotalEsperaSAtend = %.3f\n", TempoTotalEsperaSAtend);
+	printf("TempoTotalEspera = %.3f\n", TempoTotalEsperaSAtend);
 	printf("TempoTotalPermanencia = %.3f\n\n", TempoTotalPermanencia);
 
 	ContadoresEstatisticos(NumClientesSistema,
