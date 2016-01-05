@@ -21,28 +21,55 @@ main()
 		EstadoSTriag1,
 		EstadoSTriag2,
 		TotalClientesFilaSTriag,
+		EstadoSMed1,
+		TotalClientesFilaSMed1,
+		EstadoSMed2,
+		TotalClientesFilaSMed2,
+		EstadoSMed3,
+		TotalClientesFilaSMed3,
+		EstadoSMed4,
+		TotalClientesFilaSMed4,
 		TipoEvento;
 
 	float	TempoPrimeiraChegada,
 		*FilaEventosChegadaSAtend,
 		*FilaEventosChegadaSTriag,
+		*FilaEventosChegadaSMed1,
+		*FilaEventosChegadaSMed2,
+		*FilaEventosChegadaSMed3,
+		*FilaEventosChegadaSMed4,
 		Clock,
 		TempoProximaChegadaSAtend,
 		TempoProximaChegadaSTriag,
-		TempoProximaChegadaSMed,
+		TempoProximaChegadaSMed1,
+		TempoProximaChegadaSMed2,
+		TempoProximaChegadaSMed3,
+		TempoProximaChegadaSMed4,
 		TempoPartidaSAtend1,
 		TempoPartidaSAtend2,
+		TempoPartidaSMed1,
+		TempoPartidaSMed2,
+		TempoPartidaSMed3,
+		TempoPartidaSMed4,
 		TempoTotalEsperaSAtend,
 		TempoOcupacaoSAtend1,
 		TempoOcupacaoSAtend2,
+		TempoOcupacaoSMed1,
+		TempoOcupacaoSMed2,
+		TempoOcupacaoSMed3,
+		TempoOcupacaoSMed4,
 		TempoPartidaSTriag1,
 		TempoPartidaSTriag2,
 		TempoTotalEsperaSTriag,
+		TempoTotalEsperaSMed1,
+		TempoTotalEsperaSMed2,
+		TempoTotalEsperaSMed3,
+		TempoTotalEsperaSMed4,
 		TempoOcupacaoSTriag1,
 		TempoOcupacaoSTriag2,
 		TempoTotalPermanencia,
-		TempoTotalSistema;
-
+		TempoTotalSistema,
+		TempoProximaChegadaSMedTemp=0;
 	printf("Com quantos clientes quer realizar a simulacao ? ");
 	scanf_s("%d", &MaximoClientes);
 
@@ -74,10 +101,37 @@ main()
 		&TempoOcupacaoSTriag1,
 		&TempoOcupacaoSTriag2,
 		&TotalClientesFilaSTriag,
-		&TempoProximaChegadaSMed);
+		&EstadoSMed1,
+		&FilaEventosChegadaSMed1,
+		&TempoProximaChegadaSMed1,
+		&TempoPartidaSMed1,
+		&TempoTotalEsperaSMed1,
+		&TempoOcupacaoSMed1,
+		&TotalClientesFilaSMed1,
+		&EstadoSMed2,
+		&FilaEventosChegadaSMed2,
+		&TempoProximaChegadaSMed2,
+		&TempoPartidaSMed2,
+		&TempoTotalEsperaSMed2,
+		&TempoOcupacaoSMed2,
+		&TotalClientesFilaSMed2,
+		&EstadoSMed3,
+		&FilaEventosChegadaSMed3,
+		&TempoProximaChegadaSMed3,
+		&TempoPartidaSMed3,
+		&TempoTotalEsperaSMed3,
+		&TempoOcupacaoSMed3,
+		&TotalClientesFilaSMed3,
+		&EstadoSMed4,
+		&FilaEventosChegadaSMed4,
+		&TempoProximaChegadaSMed4,
+		&TempoPartidaSMed4,
+		&TempoTotalEsperaSMed4,
+		&TempoOcupacaoSMed4,
+		&TotalClientesFilaSMed4);
 
 	while (flag == 0)
-	{
+	{	
 		GestaoTempo(TempoProximaChegadaSAtend,
 					TempoPartidaSAtend1,
 					TempoPartidaSAtend2,
@@ -102,8 +156,25 @@ main()
 		printf("\nFila espera Atendimento:  ");
 		ShowQueue(FilaEventosChegadaSTriag);
 		printf("\n TempoPartidaSTriag1 = %f", TempoPartidaSTriag1);
-		printf("\n TempoPartidaSTriag2 = %f", TempoPartidaSTriag2);
-		printf("\n TempoProximaChegadaSMed = %f", TempoProximaChegadaSMed);
+		printf("\n TempoPartidaSTriag2 = %f", TempoPartidaSTriag2);		
+		printf("\nTempoProximaChegadaSMed1 = %f", TempoProximaChegadaSMed1);
+		printf("\nFila espera Atendimento Medico1:  ");
+		ShowQueue(FilaEventosChegadaSMed1);
+		printf("\n TempoPartidaSAtend1 = %f", TempoPartidaSMed1);
+		printf("\nTempoProximaChegadaSMed2 = %f", TempoProximaChegadaSMed2);
+		printf("\nFila espera Atendimento Medico2:  ");
+		ShowQueue(FilaEventosChegadaSMed2);
+		printf("\n TempoPartidaSAtend2 = %f", TempoPartidaSMed2);
+		printf("\nTempoProximaChegadaSMed3 = %f", TempoProximaChegadaSMed3);
+		printf("\nFila espera Atendimento Medico3:  ");
+		ShowQueue(FilaEventosChegadaSMed3);
+		printf("\n TempoPartidaSMed3 = %f", TempoPartidaSMed3);
+		printf("\nTempoProximaChegadaSMed4 = %f", TempoProximaChegadaSMed4);
+		printf("\nFila espera Atendimento Medico4:  ");
+		ShowQueue(FilaEventosChegadaSMed4);
+		printf("\n TempoPartidaSMed4 = %f\n", TempoPartidaSMed4);
+		
+		system("PAUSE");
 
 		if (TipoEvento == -1)
 			break;
@@ -111,7 +182,7 @@ main()
 		switch (TipoEvento)
 		{
 		case 0: NumClientes++;
-			EventoChegada(Clock,
+			EventoChegadaSistema(Clock,
 				&NumClientesSistema,
 				&EstadoSAtend1,
 				&EstadoSAtend2,
@@ -147,7 +218,7 @@ main()
 			&TempoTotalEsperaSAtend,
 			&TempoTotalPermanencia);
 			break;
-		case 3: EventoChegadaProcServ(Clock,
+		case 3: EventoChegadaProcServCom2Serv(Clock,
 							&NumClientesSistema,
 							&EstadoSTriag1,
 							&EstadoSTriag2,
@@ -162,28 +233,53 @@ main()
 			if (NumClientes == MaximoClientes)
 				TempoProximaChegadaSTriag = Infinito;
 			break;
-		case 4: EventoPartida(Clock,
+		case 4: 			
+			EventoPartida(Clock,
 							&NumClientesSistema,
 							&EstadoSTriag1,
 							&FilaEventosChegadaSTriag,
 							&TempoPartidaSTriag1,
-							&TempoProximaChegadaSMed,
+							&TempoProximaChegadaSMedTemp,
 							&TempoOcupacaoSTriag1,
 							&TempoTotalEsperaSTriag,
 							&TempoTotalPermanencia);
+
+			SelectMedic(TempoProximaChegadaSMedTemp,
+						&TempoProximaChegadaSMed1,
+						&TempoProximaChegadaSMed2,
+						&TempoProximaChegadaSMed3,
+						&TempoProximaChegadaSMed4);
 				break;
 		case 5: EventoPartida (Clock,
 							&NumClientesSistema,
 							&EstadoSTriag2,
 							&FilaEventosChegadaSTriag,
 							&TempoPartidaSTriag2,
-							&TempoProximaChegadaSMed,
+							&TempoProximaChegadaSMedTemp,
 							&TempoOcupacaoSTriag2,
 							&TempoTotalEsperaSTriag,
 							&TempoTotalPermanencia);
+
+			SelectMedic(TempoProximaChegadaSMedTemp,
+						&TempoProximaChegadaSMed1,
+						&TempoProximaChegadaSMed2,
+						&TempoProximaChegadaSMed3,
+						&TempoProximaChegadaSMed4);
 			break;
+		//case 6: EventoChegadaProcServCom1Serv(Clock,		//para chegar 
+		//					&NumClientesSistema,
+		//					&EstadoSMed1,
+		//					&FilaEventosChegadaSMed1,
+		//					&TempoProximaChegadaSMed1,
+		//					&TempoPartidaSMed1,
+		//					&TempoOcupacaoSMed1,
+		//					&TempoTotalPermanencia,
+		//					&TotalClientesFilaSMed1);
+		//	break;
 		default: terminar = 1;
 		}
+
+		
 
 		if (terminar == 1)
 		{

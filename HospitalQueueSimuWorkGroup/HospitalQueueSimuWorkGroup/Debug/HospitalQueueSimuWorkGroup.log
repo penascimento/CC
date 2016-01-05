@@ -1,10 +1,9 @@
 ﻿  Main.c
 c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\queue.h(36): warning C4101: 'i': unreferenced local variable
 c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(7): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(181): warning C4101: 'TempoEntreChegadas': unreferenced local variable
-c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(268): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(269): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(270): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(67): warning C4133: 'function': incompatible types - from 'int *' to 'float *'
-c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(68): warning C4133: 'function': incompatible types - from 'int *' to 'float *'
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(308): warning C4101: 'TempoEntreChegadas': unreferenced local variable
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(352): warning C4101: 'TempoEntreChegadas': unreferenced local variable
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(425): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(426): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(427): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   HospitalQueueSimuWorkGroup.vcxproj -> C:\Users\pedro\Dropbox\Engenharia Informática\repository\HospitalQueueSimuWorkGroup\Debug\HospitalQueueSimuWorkGroup.exe
