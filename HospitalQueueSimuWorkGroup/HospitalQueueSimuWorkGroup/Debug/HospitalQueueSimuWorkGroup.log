@@ -1,9 +1,17 @@
 ﻿  Main.c
 c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\queue.h(36): warning C4101: 'i': unreferenced local variable
 c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(7): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(308): warning C4101: 'TempoEntreChegadas': unreferenced local variable
-c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(352): warning C4101: 'TempoEntreChegadas': unreferenced local variable
-c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(425): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(426): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(427): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(413): warning C4101: 'TempoEntreChegadas': unreferenced local variable
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(457): warning C4101: 'TempoEntreChegadas': unreferenced local variable
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(530): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(531): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\simulationroutines.h(532): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(97): warning C4101: 'EventosChegadaSExam3': unreferenced local variable
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(103): warning C4101: 'EventosChegadaSExam4': unreferenced local variable
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(108): warning C4101: 'UtentesFilaSExam4': unreferenced local variable
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(96): warning C4101: 'UtentesFilaSExam2': unreferenced local variable
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(90): warning C4101: 'UtentesFilaSExam1': unreferenced local variable
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(85): warning C4101: 'EventosChegadaSExam1': unreferenced local variable
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(91): warning C4101: 'EventosChegadaSExam2': unreferenced local variable
+c:\users\pedro\dropbox\engenharia informática\repository\hospitalqueuesimuworkgroup\hospitalqueuesimuworkgroup\main.c(102): warning C4101: 'UtentesFilaSExam3': unreferenced local variable
   HospitalQueueSimuWorkGroup.vcxproj -> C:\Users\pedro\Dropbox\Engenharia Informática\repository\HospitalQueueSimuWorkGroup\Debug\HospitalQueueSimuWorkGroup.exe

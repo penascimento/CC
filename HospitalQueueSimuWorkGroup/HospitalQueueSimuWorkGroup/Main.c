@@ -12,23 +12,31 @@ main()
 {
 	int flag = 0,
 		terminar = 0,
-		MaximoClientes,
-		NumClientes = 0,
-		NumClientesSistema,
+		MaximoUtentes,
+		NumUtentes = 0,
+		NumUtentesSistema,
 		EstadoSAtend1,
 		EstadoSAtend2,
-		TotalClientesFilaSAtend,
+		TotalUtentesFilaSAtend,
 		EstadoSTriag1,
 		EstadoSTriag2,
-		TotalClientesFilaSTriag,
+		TotalUtentesFilaSTriag,
 		EstadoSMed1,
-		TotalClientesFilaSMed1,
+		TotalUtentesFilaSMed1,
 		EstadoSMed2,
-		TotalClientesFilaSMed2,
+		TotalUtentesFilaSMed2,
 		EstadoSMed3,
-		TotalClientesFilaSMed3,
+		TotalUtentesFilaSMed3,
 		EstadoSMed4,
-		TotalClientesFilaSMed4,
+		TotalUtentesFilaSMed4,
+		EstadoSExam1,
+		TotalUtentesFilaSExam1,
+		EstadoSExam2,
+		TotalUtentesFilaSExam2,
+		EstadoSExam3,
+		TotalUtentesFilaSExam3,
+		EstadoSExam4,
+		TotalUtentesFilaSExam4,
 		TipoEvento;
 
 	float	TempoPrimeiraChegada,
@@ -38,6 +46,10 @@ main()
 		*FilaEventosChegadaSMed2,
 		*FilaEventosChegadaSMed3,
 		*FilaEventosChegadaSMed4,
+		*FilaEventosChegadaSExam1,
+		*FilaEventosChegadaSExam2,
+		*FilaEventosChegadaSExam3,
+		*FilaEventosChegadaSExam4,
 		Clock,
 		TempoProximaChegadaSAtend,
 		TempoProximaChegadaSTriag,
@@ -69,16 +81,41 @@ main()
 		TempoOcupacaoSTriag2,
 		TempoTotalPermanencia,
 		TempoTotalSistema,
-		TempoProximaChegadaSMedTemp=0;
-	printf("Com quantos clientes quer realizar a simulacao ? ");
-	scanf_s("%d", &MaximoClientes);
+		TempoProximaChegadaSMedTemp=0,
+		EventosChegadaSExam1,
+		TempoProximaChegadaSExam1,
+		TempoPartidaSExam1,
+		TempoTotalEsperaSExam1,
+		TempoOcupacaoSExam1,
+		UtentesFilaSExam1,
+		EventosChegadaSExam2,
+		TempoProximaChegadaSExam2,
+		TempoPartidaSExam2,
+		TempoTotalEsperaSExam2,
+		TempoOcupacaoSExam2,
+		UtentesFilaSExam2,
+		EventosChegadaSExam3,
+		TempoProximaChegadaSExam3,
+		TempoPartidaSExam3,
+		TempoTotalEsperaSExam3,
+		TempoOcupacaoSExam3,
+		UtentesFilaSExam3,
+		EventosChegadaSExam4,
+		TempoProximaChegadaSExam4,
+		TempoPartidaSExam4,
+		TempoTotalEsperaSExam4,
+		TempoOcupacaoSExam4,
+		UtentesFilaSExam4,
+		TempoProximaChegadaSExamTemp = 0;
+	printf("Com quantos Utentes quer realizar a simulacao ? ");
+	scanf_s("%d", &MaximoUtentes);
 
 	srand((unsigned int)time(NULL));
 
 	TempoPrimeiraChegada = DeterminarTempoEntreChegadas(2.0);
 
 	Inicializacao(TempoPrimeiraChegada,
-		&NumClientesSistema,
+		&NumUtentesSistema,
 		&EstadoSAtend1,
 		&EstadoSAtend2,
 		&FilaEventosChegadaSAtend,
@@ -90,7 +127,7 @@ main()
 		&TempoOcupacaoSAtend1,
 		&TempoOcupacaoSAtend2,
 		&TempoTotalPermanencia,
-		&TotalClientesFilaSAtend,
+		&TotalUtentesFilaSAtend,
 		&EstadoSTriag1,
 		&EstadoSTriag2,
 		&FilaEventosChegadaSTriag,
@@ -100,35 +137,63 @@ main()
 		&TempoTotalEsperaSTriag,
 		&TempoOcupacaoSTriag1,
 		&TempoOcupacaoSTriag2,
-		&TotalClientesFilaSTriag,
+		&TotalUtentesFilaSTriag,
 		&EstadoSMed1,
 		&FilaEventosChegadaSMed1,
 		&TempoProximaChegadaSMed1,
 		&TempoPartidaSMed1,
 		&TempoTotalEsperaSMed1,
 		&TempoOcupacaoSMed1,
-		&TotalClientesFilaSMed1,
+		&TotalUtentesFilaSMed1,
 		&EstadoSMed2,
 		&FilaEventosChegadaSMed2,
 		&TempoProximaChegadaSMed2,
 		&TempoPartidaSMed2,
 		&TempoTotalEsperaSMed2,
 		&TempoOcupacaoSMed2,
-		&TotalClientesFilaSMed2,
+		&TotalUtentesFilaSMed2,
 		&EstadoSMed3,
 		&FilaEventosChegadaSMed3,
 		&TempoProximaChegadaSMed3,
 		&TempoPartidaSMed3,
 		&TempoTotalEsperaSMed3,
 		&TempoOcupacaoSMed3,
-		&TotalClientesFilaSMed3,
+		&TotalUtentesFilaSMed3,
 		&EstadoSMed4,
 		&FilaEventosChegadaSMed4,
 		&TempoProximaChegadaSMed4,
 		&TempoPartidaSMed4,
 		&TempoTotalEsperaSMed4,
 		&TempoOcupacaoSMed4,
-		&TotalClientesFilaSMed4);
+		&TotalUtentesFilaSMed4,
+		&EstadoSExam1,
+		&FilaEventosChegadaSExam1,
+		&TempoProximaChegadaSExam1,
+		&TempoPartidaSExam1,
+		&TempoTotalEsperaSExam1,
+		&TempoOcupacaoSExam1,
+		&TotalUtentesFilaSExam1,
+		&EstadoSExam2,
+		&FilaEventosChegadaSExam2,
+		&TempoProximaChegadaSExam2,
+		&TempoPartidaSExam2,
+		&TempoTotalEsperaSExam2,
+		&TempoOcupacaoSExam2,
+		&TotalUtentesFilaSExam2,
+		&EstadoSExam3,
+		&FilaEventosChegadaSExam3,
+		&TempoProximaChegadaSExam3,
+		&TempoPartidaSExam3,
+		&TempoTotalEsperaSExam3,
+		&TempoOcupacaoSExam3,
+		&TotalUtentesFilaSExam3,
+		&EstadoSExam4,
+		&FilaEventosChegadaSExam4,
+		&TempoProximaChegadaSExam4,
+		&TempoPartidaSExam4,
+		&TempoTotalEsperaSExam4,
+		&TempoOcupacaoSExam4,
+		&TotalUtentesFilaSExam4);
 
 	while (flag == 0)
 	{	
@@ -138,6 +203,22 @@ main()
 					TempoProximaChegadaSTriag,
 					TempoPartidaSTriag1,
 					TempoPartidaSTriag2,
+					TempoProximaChegadaSMed1,
+					TempoPartidaSMed1,
+					TempoProximaChegadaSMed2,
+					TempoPartidaSMed2,
+					TempoProximaChegadaSMed3,
+					TempoPartidaSMed3,
+					TempoProximaChegadaSMed4,
+					TempoPartidaSMed4,
+					TempoProximaChegadaSExam1,
+					TempoPartidaSExam1,
+					TempoProximaChegadaSExam2,
+					TempoPartidaSExam2,
+					TempoProximaChegadaSExam3,
+					TempoPartidaSExam3,
+					TempoProximaChegadaSExam4,
+					TempoPartidaSExam4,
 					&Clock,
 					&TipoEvento);
 
@@ -173,6 +254,22 @@ main()
 		printf("\nFila espera Atendimento Medico4:  ");
 		ShowQueue(FilaEventosChegadaSMed4);
 		printf("\n TempoPartidaSMed4 = %f\n", TempoPartidaSMed4);
+		printf("\nTempoProximaChegadaSExam1 = %f", TempoProximaChegadaSExam1);
+		printf("\nFila espera Atendimento Medico1:  ");
+		ShowQueue(FilaEventosChegadaSExam1);
+		printf("\n TempoPartidaSAtend1 = %f", TempoPartidaSExam1);
+		printf("\nTempoProximaChegadaSExam2 = %f", TempoProximaChegadaSExam2);
+		printf("\nFila espera Atendimento Medico2:  ");
+		ShowQueue(FilaEventosChegadaSExam2);
+		printf("\n TempoPartidaSAtend2 = %f", TempoPartidaSExam2);
+		printf("\nTempoProximaChegadaSExam3 = %f", TempoProximaChegadaSExam3);
+		printf("\nFila espera Atendimento Medico3:  ");
+		ShowQueue(FilaEventosChegadaSExam3);
+		printf("\n TempoPartidaSExam4 = %f", TempoPartidaSExam4);
+		printf("\nTempoProximaChegadaSExam4 = %f", TempoProximaChegadaSExam4);
+		printf("\nFila espera Atendimento Medico4:  ");
+		ShowQueue(FilaEventosChegadaSExam4);
+		printf("\n TempoPartidaSExam4 = %f", TempoPartidaSExam4);
 		
 		system("PAUSE");
 
@@ -181,9 +278,9 @@ main()
 
 		switch (TipoEvento)
 		{
-		case 0: NumClientes++;
+		case 0: NumUtentes++;
 			EventoChegadaSistema(Clock,
-				&NumClientesSistema,
+				&NumUtentesSistema,
 				&EstadoSAtend1,
 				&EstadoSAtend2,
 				&FilaEventosChegadaSAtend,
@@ -193,13 +290,13 @@ main()
 				&TempoOcupacaoSAtend1,
 				&TempoOcupacaoSAtend2,
 				&TempoTotalPermanencia,
-				&TotalClientesFilaSAtend);
+				&TotalUtentesFilaSAtend);
 
-			if (NumClientes == MaximoClientes)
+			if (NumUtentes == MaximoUtentes)
 				TempoProximaChegadaSAtend = Infinito;
 			break;
 		case 1: EventoPartida(Clock,
-			&NumClientesSistema,
+			&NumUtentesSistema,
 			&EstadoSAtend1,
 			&FilaEventosChegadaSAtend,
 			&TempoPartidaSAtend1,
@@ -209,7 +306,7 @@ main()
 			&TempoTotalPermanencia);
 			break;
 		case 2: EventoPartida(Clock,
-			&NumClientesSistema,
+			&NumUtentesSistema,
 			&EstadoSAtend2,
 			&FilaEventosChegadaSAtend,
 			&TempoPartidaSAtend2,
@@ -219,7 +316,7 @@ main()
 			&TempoTotalPermanencia);
 			break;
 		case 3: EventoChegadaProcServCom2Serv(Clock,
-							&NumClientesSistema,
+							&NumUtentesSistema,
 							&EstadoSTriag1,
 							&EstadoSTriag2,
 							&FilaEventosChegadaSTriag,
@@ -229,13 +326,13 @@ main()
 							&TempoOcupacaoSTriag1,
 							&TempoOcupacaoSTriag2,
 							&TempoTotalPermanencia,
-							&TotalClientesFilaSTriag);
-			if (NumClientes == MaximoClientes)
+							&TotalUtentesFilaSTriag);
+			if (NumUtentes == MaximoUtentes)
 				TempoProximaChegadaSTriag = Infinito;
 			break;
 		case 4: 			
 			EventoPartida(Clock,
-							&NumClientesSistema,
+							&NumUtentesSistema,
 							&EstadoSTriag1,
 							&FilaEventosChegadaSTriag,
 							&TempoPartidaSTriag1,
@@ -244,14 +341,14 @@ main()
 							&TempoTotalEsperaSTriag,
 							&TempoTotalPermanencia);
 
-			SelectMedic(TempoProximaChegadaSMedTemp,
+			SelectOneOf4Serv(TempoProximaChegadaSMedTemp,
 						&TempoProximaChegadaSMed1,
 						&TempoProximaChegadaSMed2,
 						&TempoProximaChegadaSMed3,
 						&TempoProximaChegadaSMed4);
 				break;
 		case 5: EventoPartida (Clock,
-							&NumClientesSistema,
+							&NumUtentesSistema,
 							&EstadoSTriag2,
 							&FilaEventosChegadaSTriag,
 							&TempoPartidaSTriag2,
@@ -260,22 +357,201 @@ main()
 							&TempoTotalEsperaSTriag,
 							&TempoTotalPermanencia);
 
-			SelectMedic(TempoProximaChegadaSMedTemp,
+			SelectOneOf4Serv(TempoProximaChegadaSMedTemp,
 						&TempoProximaChegadaSMed1,
 						&TempoProximaChegadaSMed2,
 						&TempoProximaChegadaSMed3,
 						&TempoProximaChegadaSMed4);
 			break;
-		//case 6: EventoChegadaProcServCom1Serv(Clock,		//para chegar 
-		//					&NumClientesSistema,
-		//					&EstadoSMed1,
-		//					&FilaEventosChegadaSMed1,
-		//					&TempoProximaChegadaSMed1,
-		//					&TempoPartidaSMed1,
-		//					&TempoOcupacaoSMed1,
-		//					&TempoTotalPermanencia,
-		//					&TotalClientesFilaSMed1);
-		//	break;
+		case 6: EventoChegadaProcServCom1Serv(Clock,		//para chegar 
+							&NumUtentesSistema,
+							&EstadoSMed1,
+							&FilaEventosChegadaSMed1,
+							&TempoProximaChegadaSMed1,
+							&TempoPartidaSMed1,
+							&TempoOcupacaoSMed1,
+							&TempoTotalPermanencia,
+							&TotalUtentesFilaSMed1);
+			break;
+		case 7: EventoPartida (Clock,
+							&NumUtentesSistema,
+							&EstadoSMed1,
+							&FilaEventosChegadaSMed1,
+							&TempoPartidaSMed1,
+							&TempoProximaChegadaSExamTemp,
+							&TempoOcupacaoSMed1,
+							&TempoTotalEsperaSMed1,
+							&TempoTotalPermanencia);
+
+			SelectOneOf4Serv(TempoProximaChegadaSMedTemp,
+							&TempoProximaChegadaSExam1,
+							&TempoProximaChegadaSExam2,
+							&TempoProximaChegadaSExam3,
+							&TempoProximaChegadaSExam4);
+			break;
+		case 8: EventoChegadaProcServCom1Serv(Clock,		//para chegar 
+							&NumUtentesSistema,
+							&EstadoSMed2,
+							&FilaEventosChegadaSMed2,
+							&TempoProximaChegadaSMed2,
+							&TempoPartidaSMed2,
+							&TempoOcupacaoSMed2,
+							&TempoTotalPermanencia,
+							&TotalUtentesFilaSMed2);
+			break;
+		case 9: EventoPartida (Clock,
+							&NumUtentesSistema,
+							&EstadoSMed2,
+							&FilaEventosChegadaSMed2,
+							&TempoPartidaSMed2,
+							&TempoProximaChegadaSExamTemp,
+							&TempoOcupacaoSMed2,
+							&TempoTotalEsperaSMed2,
+							&TempoTotalPermanencia);
+
+			SelectOneOf4Serv(TempoProximaChegadaSMedTemp,
+				&TempoProximaChegadaSExam1,
+				&TempoProximaChegadaSExam2,
+				&TempoProximaChegadaSExam3,
+				&TempoProximaChegadaSExam4);
+			break;
+		case 10: EventoChegadaProcServCom1Serv(Clock,		//para chegar 
+							&NumUtentesSistema,
+							&EstadoSMed3,
+							&FilaEventosChegadaSMed3,
+							&TempoProximaChegadaSMed3,
+							&TempoPartidaSMed3,
+							&TempoOcupacaoSMed3,
+							&TempoTotalPermanencia,
+							&TotalUtentesFilaSMed3);
+
+			SelectOneOf4Serv(TempoProximaChegadaSMedTemp,
+				&TempoProximaChegadaSExam1,
+				&TempoProximaChegadaSExam2,
+				&TempoProximaChegadaSExam3,
+				&TempoProximaChegadaSExam4);
+			break;
+		case 11: EventoPartida (Clock,
+							&NumUtentesSistema,
+							&EstadoSMed3,
+							&FilaEventosChegadaSMed3,
+							&TempoPartidaSMed3,
+							&TempoProximaChegadaSExamTemp,
+							&TempoOcupacaoSMed3,
+							&TempoTotalEsperaSMed3,
+							&TempoTotalPermanencia);
+			break;
+		case 12: EventoChegadaProcServCom1Serv(Clock,		//para chegar 
+							&NumUtentesSistema,
+							&EstadoSMed4,
+							&FilaEventosChegadaSMed4,
+							&TempoProximaChegadaSMed4,
+							&TempoPartidaSMed4,
+							&TempoOcupacaoSMed4,
+							&TempoTotalPermanencia,
+							&TotalUtentesFilaSMed4);
+
+			SelectOneOf4Serv(TempoProximaChegadaSMedTemp,
+				&TempoProximaChegadaSExam1,
+				&TempoProximaChegadaSExam2,
+				&TempoProximaChegadaSExam3,
+				&TempoProximaChegadaSExam4);
+			break;
+		case 13: EventoPartida (Clock,
+							&NumUtentesSistema,
+							&EstadoSMed4,
+							&FilaEventosChegadaSMed4,
+							&TempoPartidaSMed4,
+							&TempoProximaChegadaSExamTemp,
+							&TempoOcupacaoSMed4,
+							&TempoTotalEsperaSMed4,
+							&TempoTotalPermanencia);
+			SelectOneOf4Serv(TempoProximaChegadaSMedTemp,
+				&TempoProximaChegadaSExam1,
+				&TempoProximaChegadaSExam2,
+				&TempoProximaChegadaSExam3,
+				&TempoProximaChegadaSExam4);
+			break;
+		case 14: EventoChegadaProcServCom1Serv(Clock,		//para chegar 
+							&NumUtentesSistema,
+							&EstadoSExam1,
+							&FilaEventosChegadaSExam1,
+							&TempoProximaChegadaSExam1,
+							&TempoPartidaSExam1,
+							&TempoOcupacaoSExam1,
+							&TempoTotalPermanencia,
+							&TotalUtentesFilaSExam1);
+			break;
+		case 15: EventoPartida (Clock,
+							&NumUtentesSistema,
+							&EstadoSExam1,
+							&FilaEventosChegadaSExam1,
+							&TempoPartidaSExam1,
+							&TempoProximaChegadaSMedTemp,
+							&TempoOcupacaoSExam1,
+							&TempoTotalEsperaSExam1,
+							&TempoTotalPermanencia);
+			break;
+		case 16: EventoChegadaProcServCom1Serv(Clock,		//para chegar 
+							&NumUtentesSistema,
+							&EstadoSExam2,
+							&FilaEventosChegadaSExam2,
+							&TempoProximaChegadaSExam2,
+							&TempoPartidaSExam2,
+							&TempoOcupacaoSExam2,
+							&TempoTotalPermanencia,
+							&TotalUtentesFilaSExam2);
+			break;
+		case 17: EventoPartida (Clock,
+							&NumUtentesSistema,
+							&EstadoSExam2,
+							&FilaEventosChegadaSExam2,
+							&TempoPartidaSExam2,
+							&TempoProximaChegadaSMedTemp,
+							&TempoOcupacaoSExam2,
+							&TempoTotalEsperaSExam2,
+							&TempoTotalPermanencia);
+			break;
+		case 18: EventoChegadaProcServCom1Serv(Clock,		//para chegar 
+							&NumUtentesSistema,
+							&EstadoSExam3,
+							&FilaEventosChegadaSExam3,
+							&TempoProximaChegadaSExam3,
+							&TempoPartidaSExam3,
+							&TempoOcupacaoSExam3,
+							&TempoTotalPermanencia,
+							&TotalUtentesFilaSExam3);
+			break;
+		case 19: EventoPartida (Clock,
+							&NumUtentesSistema,
+							&EstadoSExam3,
+							&FilaEventosChegadaSExam3,
+							&TempoPartidaSExam3,
+							&TempoProximaChegadaSMedTemp,
+							&TempoOcupacaoSExam3,
+							&TempoTotalEsperaSExam3,
+							&TempoTotalPermanencia);
+			break;
+		case 20: EventoChegadaProcServCom1Serv(Clock,		//para chegar 
+							&NumUtentesSistema,
+							&EstadoSExam4,
+							&FilaEventosChegadaSExam4,
+							&TempoProximaChegadaSExam4,
+							&TempoPartidaSExam4,
+							&TempoOcupacaoSExam4,
+							&TempoTotalPermanencia,
+							&TotalUtentesFilaSExam4);
+			break;
+		case 21: EventoPartida (Clock,
+							&NumUtentesSistema,
+							&EstadoSExam4,
+							&FilaEventosChegadaSExam4,
+							&TempoPartidaSExam4,
+							&TempoProximaChegadaSMedTemp,
+							&TempoOcupacaoSExam4,
+							&TempoTotalEsperaSExam4,
+							&TempoTotalPermanencia);
+			break;
 		default: terminar = 1;
 		}
 
@@ -287,21 +563,21 @@ main()
 			break;
 		}
 
-		printf("\n\nNumClientes = %d", NumClientes);
-		printf("\n NumClientesSistema = %d \n", NumClientesSistema);
+		printf("\n\nNumUtentes = %d", NumUtentes);
+		printf("\n NumUtentesSistema = %d \n", NumUtentesSistema);
 	}
 
 	printf("\n\nCONTADORES ESTATISTICOS\n");
-	printf("NumClientesSistema = %d\n", NumClientesSistema);
-	printf("TotalClientesFila = %d\n", TotalClientesFilaSAtend);
+	printf("NumUtentesSistema = %d\n", NumUtentesSistema);
+	printf("TotalUtentesFila = %d\n", TotalUtentesFilaSAtend);
 	printf("TempoTotalSistema = %.3f\n", TempoTotalSistema);
 	printf("TempoOcupacaoSAtend1 = %.3f\n", TempoOcupacaoSAtend1);
 	printf("TempoOcupacaoSAtend2 = %.3f\n", TempoOcupacaoSAtend2);
 	printf("TempoTotalEspera = %.3f\n", TempoTotalEsperaSAtend);
 	printf("TempoTotalPermanencia = %.3f\n\n", TempoTotalPermanencia);
 
-	ContadoresEstatisticos(NumClientesSistema,
-		TotalClientesFilaSAtend,
+	ContadoresEstatisticos(NumUtentesSistema,
+		TotalUtentesFilaSAtend,
 		TempoOcupacaoSAtend1,
 		TempoOcupacaoSAtend2,
 		TempoTotalEsperaSAtend,
