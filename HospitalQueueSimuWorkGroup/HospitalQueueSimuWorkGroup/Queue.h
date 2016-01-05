@@ -55,7 +55,7 @@ void ShowQueue(float *Q)
 	int k = 0;
 	while (Q[k] >= 0)
 	{
-		printf("%f\n", Q[k]);
+		printf("%f\t", Q[k]);
 		k++;
 	}
 }

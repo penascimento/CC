@@ -29,6 +29,7 @@ main()
 		Clock,
 		TempoProximaChegadaSAtend,
 		TempoProximaChegadaSTriag,
+		TempoProximaChegadaSMed,
 		TempoPartidaSAtend1,
 		TempoPartidaSAtend2,
 		TempoTotalEsperaSAtend,
@@ -72,15 +73,19 @@ main()
 		&TempoTotalEsperaSTriag,
 		&TempoOcupacaoSTriag1,
 		&TempoOcupacaoSTriag2,
-		&TotalClientesFilaSTriag);
+		&TotalClientesFilaSTriag,
+		&TempoProximaChegadaSMed);
 
 	while (flag == 0)
 	{
 		GestaoTempo(TempoProximaChegadaSAtend,
-			TempoPartidaSAtend1,
-			TempoPartidaSAtend2,
-			&Clock,
-			&TipoEvento);
+					TempoPartidaSAtend1,
+					TempoPartidaSAtend2,
+					TempoProximaChegadaSTriag,
+					TempoPartidaSTriag1,
+					TempoPartidaSTriag2,
+					&Clock,
+					&TipoEvento);
 
 		if (Clock < Infinito)
 			TempoTotalSistema = Clock;
@@ -89,11 +94,16 @@ main()
 		printf("\n TipoEvento = %d ", TipoEvento);
 
 		printf("\nTempoProximaChegadaSAtend = %f", TempoProximaChegadaSAtend);
+		printf("\nFila espera Atendimento:  ");
+		ShowQueue(FilaEventosChegadaSAtend);	
 		printf("\n TempoPartidaSAtend1 = %f", TempoPartidaSAtend1);
 		printf("\n TempoPartidaSAtend2 = %f", TempoPartidaSAtend2);
 		printf("\n TempoProximaChegadaSTriag = %f", TempoProximaChegadaSTriag);
+		printf("\nFila espera Atendimento:  ");
+		ShowQueue(FilaEventosChegadaSTriag);
 		printf("\n TempoPartidaSTriag1 = %f", TempoPartidaSTriag1);
 		printf("\n TempoPartidaSTriag2 = %f", TempoPartidaSTriag2);
+		printf("\n TempoProximaChegadaSMed = %f", TempoProximaChegadaSMed);
 
 		if (TipoEvento == -1)
 			break;
@@ -122,6 +132,7 @@ main()
 			&EstadoSAtend1,
 			&FilaEventosChegadaSAtend,
 			&TempoPartidaSAtend1,
+			&TempoProximaChegadaSTriag,
 			&TempoOcupacaoSAtend1,
 			&TempoTotalEsperaSAtend,
 			&TempoTotalPermanencia);
@@ -131,9 +142,45 @@ main()
 			&EstadoSAtend2,
 			&FilaEventosChegadaSAtend,
 			&TempoPartidaSAtend2,
+			&TempoProximaChegadaSTriag,
 			&TempoOcupacaoSAtend2,
 			&TempoTotalEsperaSAtend,
 			&TempoTotalPermanencia);
+			break;
+		case 3: EventoChegadaProcServ(Clock,
+							&NumClientesSistema,
+							&EstadoSTriag1,
+							&EstadoSTriag2,
+							&FilaEventosChegadaSTriag,
+							&TempoProximaChegadaSTriag,
+							&TempoPartidaSTriag1,
+							&TempoPartidaSTriag2,
+							&TempoOcupacaoSTriag1,
+							&TempoOcupacaoSTriag2,
+							&TempoTotalPermanencia,
+							&TotalClientesFilaSTriag);
+			if (NumClientes == MaximoClientes)
+				TempoProximaChegadaSTriag = Infinito;
+			break;
+		case 4: EventoPartida(Clock,
+							&NumClientesSistema,
+							&EstadoSTriag1,
+							&FilaEventosChegadaSTriag,
+							&TempoPartidaSTriag1,
+							&TempoProximaChegadaSMed,
+							&TempoOcupacaoSTriag1,
+							&TempoTotalEsperaSTriag,
+							&TempoTotalPermanencia);
+				break;
+		case 5: EventoPartida (Clock,
+							&NumClientesSistema,
+							&EstadoSTriag2,
+							&FilaEventosChegadaSTriag,
+							&TempoPartidaSTriag2,
+							&TempoProximaChegadaSMed,
+							&TempoOcupacaoSTriag2,
+							&TempoTotalEsperaSTriag,
+							&TempoTotalPermanencia);
 			break;
 		default: terminar = 1;
 		}
